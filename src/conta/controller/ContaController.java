@@ -1,6 +1,6 @@
 package conta.controller;
 
-java.util.ArrayList;
+import java.util.ArrayList;
 
 import conta.model.Conta;
 import conta.repository.ContaRepository;
@@ -18,13 +18,15 @@ public class ContaController implements ContaRepository {
 
 	@Override
 	public void listarTodas() {
-		// TODO Auto-generated method stub
-		
+		for (var conta : listaContas) {
+			   conta.visualizar();
+		}
 	}
 
 	@Override
 	public void cadastrar(Conta conta) {
-		// TODO Auto-generated method stub
+		listaContas.add(conta);
+		System.out.println("\n A conta número "+ conta.getNumero()+" foi criada com sucesso!!!");
 		
 	}
 
@@ -58,4 +60,8 @@ public class ContaController implements ContaRepository {
 		
 	}
 
+	public int gerarNumero() {
+		return ++ numero;
+	}
+	
 }
